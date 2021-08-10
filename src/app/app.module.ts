@@ -13,7 +13,7 @@ import { ManagePlansComponent } from './manage-plans/manage-plans.component';
   declarations: [
     AppComponent,
 
-    DeviceComponent
+    DeviceComponent,
 
     ManagePlansComponent
 

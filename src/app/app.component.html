@@ -1,9 +1,8 @@
 <div class="container-fluid">
   <div><h1>AT&T</h1></div>
-  <app-device></app-device>
 </div>
-
-  <a [routerLink]="['/plans']">Manage Plans</a>
+<div>
+  <a [routerLink]="['/plans']">Manage Plans</a> | <a [routerLink]="['/device']">Manage Device</a>
   <router-outlet></router-outlet>
 </div>
 
