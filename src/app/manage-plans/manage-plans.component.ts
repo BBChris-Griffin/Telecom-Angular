@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Plan from '../models/Plan';
+import { TelecomService } from '../telecom.service';
 
 @Component({
   selector: 'app-manage-plans',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagePlansComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: TelecomService) { }
 
+  planList: Plan[] = [];
   ngOnInit(): void {
+    this.service.findAllPlans().subscribe((data) => {
+      this.planList = data;
+      console.log(this.planList);
+    });
   }
 
 }
