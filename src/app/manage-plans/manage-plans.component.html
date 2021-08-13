@@ -5,6 +5,11 @@
             <tr>
                 <th>STARTER</th><th>EXTRA</th><th>ELITE</th>
             </tr>
+            <tr *ngFor="let plan of planList">
+                <td>{{ plan.plan_type }}</td> 
+                <td>{{ plan.price }}</td>
+                <td>{{plan.num_of_lines}}</td>
+            </tr>
         </table>
     </div>  
 </div>>
