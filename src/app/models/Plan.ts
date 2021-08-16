@@ -1,5 +1,5 @@
 class Plan {
-    plan_id!: number;
+    planId!: number;
     plan_type!: string;
     price!: number;
     num_of_lines!: number; 
