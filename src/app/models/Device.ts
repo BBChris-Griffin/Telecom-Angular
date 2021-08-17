@@ -7,8 +7,8 @@ class Device{
   
 
   device_id!: number;
-  device_model!:number;
-  phoneNumber!:number;
+  device_model!:string;
+  phoneNumber!:string;
   plan!:Plan;
   user!:User;
  
