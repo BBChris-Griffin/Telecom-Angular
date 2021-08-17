@@ -1,4 +1,6 @@
 import Plan from "./Plan";
+import User from "./User";
+
 
 class Device{
 
@@ -8,6 +10,7 @@ class Device{
   device_model!:number;
   phoneNumber!:number;
   plan!:Plan;
+  user!:User;
  
   
 

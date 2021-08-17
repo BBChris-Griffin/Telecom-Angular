@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { DeviceComponent } from './device/device.component';
 import { ManagePlansComponent } from './manage-plans/manage-plans.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule
+    AppRoutingModule, HttpClientModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
