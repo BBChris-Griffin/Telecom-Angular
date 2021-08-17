@@ -3,7 +3,7 @@ import Device from '../models/Device';
 import { TelecomService } from '../telecom.service';
 
 import Plan from '../models/Plan';
-
+//import { variable } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-device',
@@ -12,17 +12,14 @@ import Plan from '../models/Plan';
 })
 export class DeviceComponent implements OnInit {
 
-  constructor(private service:TelecomService) { }
+  constructor(private service:TelecomService) {
+    //document.getElementById("phone-number")?.addEventListener("click", this.editCell);
+   }
 
   deviceList: Device[]=[];
-
-  getKeys(obj: {}){
-    return Object.keys(obj);
-  }
+  device: Device = new Device();
   
   ngOnInit(): void {
-
-
     
    // this.plan= new Plan()
     this.service.FindAllDevices().subscribe((data)=>{

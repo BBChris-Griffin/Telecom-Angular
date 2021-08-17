@@ -5,21 +5,19 @@ import { AppComponent } from './app.component';
 import { DeviceComponent } from './device/device.component';
 import { ManagePlansComponent } from './manage-plans/manage-plans.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AddDeviceComponent } from './add-device/add-device.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-
-    DeviceComponent,
-
-    ManagePlansComponent
+    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule
+    AppRoutingModule, HttpClientModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
