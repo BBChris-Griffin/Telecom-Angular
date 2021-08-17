@@ -10,6 +10,7 @@ import Device from './models/Device';
 export class TelecomService {
   
   url = 'http://localhost:9001/telecom';
+  id!:Text
 
   constructor(private httpClient: HttpClient) { }
 
@@ -27,6 +28,10 @@ export class TelecomService {
 
   FindAllDevices(): Observable<Device[]>{
     return this.httpClient.get<Device[]>(this.url+'/devices');
+  }
+
+  FindByCustomerId(customer_id:Text): Observable<Device[]>{
+    return this.httpClient.get<Device[]>(this.url+'/DeviceCustomerId='+customer_id);
   }
 
 
