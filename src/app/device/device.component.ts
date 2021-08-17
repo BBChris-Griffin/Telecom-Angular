@@ -16,13 +16,19 @@ export class DeviceComponent implements OnInit {
 
   deviceList: Device[]=[];
 
+  deviceList2:Device[]=[]
+
   getKeys(obj: {}){
     return Object.keys(obj);
   }
   
   ngOnInit(): void {
 
-
+    this.service.FindByCustomerId().subscribe((data)=>{
+      this.deviceList2=data;
+      console.log(this.deviceList2);
+      
+    });
     
    // this.plan= new Plan()
     this.service.FindAllDevices().subscribe((data)=>{

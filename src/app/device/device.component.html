@@ -5,7 +5,7 @@
     <form id= "add device">
         <div><label class="form-label" for ="phone-number">Phone Number</label><input class="phone-number" type="text" id="renter-name" name="phone-number"></div>
         <div><label class="form-label" for ="device-model">Model Number</label><input class="device-model" type="text" id="device-model" name="device-model"></div>
-        <div class= "SumbitButton"><input class="btn btn-primary grey-button" type="submit" id="add-renter" value="Add Renter"></div>
+        <div class= "SumbitButton"><input class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
 
 
     </form>
@@ -14,6 +14,15 @@
             <tr>
                 <th>Number</th><th>Model</th><th>Plan</th>
             </tr>
+
+            <tr *ngFor="let device of deviceList2">
+                
+                <td>{{ device.phoneNumber }}</td> 
+                <td>{{ device.device_model }}</td>
+                <td>{{device.plan?.planId || 'No plan'}}</td>
+                             
+            </tr>
+            <!--
             <tr *ngFor="let device of deviceList">
                 
                 <td>{{ device.phoneNumber }}</td> 
@@ -21,6 +30,7 @@
                 <td>{{device.plan?.planId || 'No plan'}}</td>
                              
             </tr>
+        -->
         </table>
     </div>
 </div>

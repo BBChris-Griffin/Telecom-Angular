@@ -29,5 +29,9 @@ export class TelecomService {
     return this.httpClient.get<Device[]>(this.url+'/devices');
   }
 
+  FindByCustomerId(): Observable<Device[]>{
+    return this.httpClient.get<Device[]>(this.url+'/DeviceCustomerId=2');
+  }
+
 
 }
