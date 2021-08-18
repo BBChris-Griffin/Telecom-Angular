@@ -8,12 +8,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { NewNumberComponent } from './new-number/new-number.component';
+import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, NewNumberComponent
+    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, NewNumberComponent, DeleteDeviceComponent
 
   ],
   imports: [
