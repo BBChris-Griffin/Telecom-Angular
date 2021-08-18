@@ -7,12 +7,13 @@ import { ManagePlansComponent } from './manage-plans/manage-plans.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddDeviceComponent } from './add-device/add-device.component';
+import { FindIdComponent } from './find-id/find-id.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent
+    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, FindIdComponent
 
   ],
   imports: [
