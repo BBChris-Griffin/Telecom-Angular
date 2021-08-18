@@ -39,10 +39,6 @@ export class TelecomService {
   EstimatedPrice(customer_id:Text): Observable<User>{
     return this.httpClient.get<User>(this.url+'/totalPrice/c_id='+customer_id);
   }
-  
-
-
-
 
   AddUserIDToDevice(customer_id:Text, phoneNumber:string): Observable<ArrayBuffer>{
     return this.httpClient.put<BigInteger>(this.url+'/customer_id=' + customer_id + '/phone_number=' + phoneNumber, this.excess);
@@ -54,5 +50,9 @@ export class TelecomService {
 
   DeleteDevice(phoneNumber:Text): Observable<ArrayBuffer>{
     return this.httpClient.delete<BigInteger>(this.url+'/delete-device=' + phoneNumber);
+  }
+
+  AddPlanIDToDevice(plan_id:Text, phoneNumber:Text): Observable<ArrayBuffer>{
+    return this.httpClient.put<BigInteger>(this.url+'/plan_id=' + plan_id + '/phone_number=' + phoneNumber, this.excess);
   }
 }
