@@ -13,7 +13,6 @@ import Plan from '../models/Plan';
 export class DeviceComponent implements OnInit {
 
   constructor(private service:TelecomService) {
-    //document.getElementById("phone-number")?.addEventListener("click", this.editCell);
    }
 
   deviceList: Device[]=[];
@@ -22,21 +21,15 @@ export class DeviceComponent implements OnInit {
 
   id!:Text
 
-  @Output() send = new EventEmitter<Text>();
-
-  sendID() {
-    console.log("Ho");
-    this.send.emit(this.id);
-  }
-
   getKeys(obj: {}){
     return Object.keys(obj);
   }
 
   findByID():void{
     console.log("find by id")
-  this.service.FindByCustomerId(this.id).subscribe((data)=>{
-    console.log(this.id);
+    this.service.id = this.id;
+  this.service.FindByCustomerId(this.service.id).subscribe((data)=>{
+    console.log(this.service.id);
     this.deviceList2=data;
     console.log(this.deviceList2);
     

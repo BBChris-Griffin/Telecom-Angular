@@ -4,6 +4,5 @@
     <div><label class="form-label" for ="phone-number">Phone Number</label><input [(ngModel)]="device.phoneNumber" class="phone-number" type="text" id="renter-name" name="phone-number"></div>
     <div><label class="form-label" for ="device-model">Model (IOS/Android)</label><input [(ngModel)]="device.device_model" class="device-model" type="text" id="device-model" name="device-model"></div>
     <div class= "SumbitButton"><input class="btn btn-primary grey-button" type="submit" id="add-renter" value="Add Renter"></div>
-    <app-device (send)="receiveMessage($event)"></app-device>
 </form>
 
