@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import Device from '../models/Device';
 import { TelecomService } from '../telecom.service';
 
@@ -13,7 +13,6 @@ import Plan from '../models/Plan';
 export class DeviceComponent implements OnInit {
 
   constructor(private service:TelecomService) {
-    //document.getElementById("phone-number")?.addEventListener("click", this.editCell);
    }
 
   deviceList: Device[]=[];
@@ -28,8 +27,9 @@ export class DeviceComponent implements OnInit {
 
   findByID():void{
     console.log("find by id")
-  this.service.FindByCustomerId(this.id).subscribe((data)=>{
-    console.log(this.id);
+    this.service.id = this.id;
+  this.service.FindByCustomerId(this.service.id).subscribe((data)=>{
+    console.log(this.service.id);
     this.deviceList2=data;
     console.log(this.deviceList2);
     
