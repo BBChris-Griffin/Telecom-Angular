@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import Device from '../models/Device';
 import { TelecomService } from '../telecom.service';
 
@@ -21,6 +21,13 @@ export class DeviceComponent implements OnInit {
   deviceList2:Device[]=[]
 
   id!:Text
+
+  @Output() send = new EventEmitter<Text>();
+
+  sendID() {
+    console.log("Ho");
+    this.send.emit(this.id);
+  }
 
   getKeys(obj: {}){
     return Object.keys(obj);

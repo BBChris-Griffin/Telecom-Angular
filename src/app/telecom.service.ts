@@ -11,6 +11,7 @@ export class TelecomService {
   
   url = 'http://localhost:9001/telecom';
   id!:Text
+  excess!: ArrayBuffer;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -34,5 +35,7 @@ export class TelecomService {
     return this.httpClient.get<Device[]>(this.url+'/DeviceCustomerId='+customer_id);
   }
 
-
+  AddUserIDToDevice(customer_id:Text, phoneNumber:string): Observable<ArrayBuffer>{
+    return this.httpClient.put<BigInteger>(this.url+'/customer_id=' + customer_id + '/phone_number=' + phoneNumber, this.excess);
+  }
 }
