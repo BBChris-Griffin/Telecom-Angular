@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import Plan from './models/Plan';
 import Device from './models/Device';
+import User from './models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,14 @@ export class TelecomService {
   FindByCustomerId(customer_id:Text): Observable<Device[]>{
     return this.httpClient.get<Device[]>(this.url+'/DeviceCustomerId='+customer_id);
   }
+
+  EstimatedPrice(customer_id:Text): Observable<User>{
+    return this.httpClient.get<User>(this.url+'/totalPrice/c_id='+customer_id);
+  }
+  
+
+
+
 
   AddUserIDToDevice(customer_id:Text, phoneNumber:string): Observable<ArrayBuffer>{
     return this.httpClient.put<BigInteger>(this.url+'/customer_id=' + customer_id + '/phone_number=' + phoneNumber, this.excess);
