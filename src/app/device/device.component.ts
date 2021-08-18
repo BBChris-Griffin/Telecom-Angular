@@ -37,6 +37,6 @@ export class DeviceComponent implements OnInit {
   }
   
   ngOnInit(): void {      
-   // this.plan= new Plan()
+    console.log(this.service.id)
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TelecomService } from './telecom.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'telecom-angular';
+  id = this.service.id;
+  constructor(private service:TelecomService){}
 }
