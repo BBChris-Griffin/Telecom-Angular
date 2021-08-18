@@ -42,4 +42,8 @@ export class TelecomService {
   UpdatePhoneNumber(oldPhoneNumber:Text, newPhoneNumber:Text): Observable<ArrayBuffer>{
     return this.httpClient.put<BigInteger>(this.url+'/old_phone_num=' + oldPhoneNumber + '/new_phone_num=' + newPhoneNumber, this.excess);
   }
+
+  DeleteDevice(phoneNumber:Text): Observable<ArrayBuffer>{
+    return this.httpClient.delete<BigInteger>(this.url+'/delete-device=' + phoneNumber);
+  }
 }
