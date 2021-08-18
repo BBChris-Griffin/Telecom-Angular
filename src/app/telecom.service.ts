@@ -38,4 +38,8 @@ export class TelecomService {
   AddUserIDToDevice(customer_id:Text, phoneNumber:string): Observable<ArrayBuffer>{
     return this.httpClient.put<BigInteger>(this.url+'/customer_id=' + customer_id + '/phone_number=' + phoneNumber, this.excess);
   }
+
+  UpdatePhoneNumber(oldPhoneNumber:Text, newPhoneNumber:Text): Observable<ArrayBuffer>{
+    return this.httpClient.put<BigInteger>(this.url+'/old_phone_num=' + oldPhoneNumber + '/new_phone_num=' + newPhoneNumber, this.excess);
+  }
 }
