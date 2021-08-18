@@ -1,6 +1,9 @@
 <html>
 <div>
 
+    <app-find-id (send)="recieveMessage($event)"></app-find-id>
+
+
     <!-- <app-add-device [userID] = "id"></app-add-device> -->
 
     <h2>Manage Devices</h2>
@@ -10,7 +13,7 @@
                 <th>Number</th><th>Model</th><th>Plan</th><th>User_ID</th>
             </tr>
 
-            <tr *ngFor="let device of deviceList2">
+            <tr *ngFor="let device of deviceList3">
                 
                 <td>{{ device.phoneNumber }}</td> 
                 <td>{{ device.device_model }}</td>
@@ -22,10 +25,7 @@
         </table>
     </div>
 </div> 
-<form  (ngSubmit)="findByID()" >
-    <div>customerId:<input type="text" name="customerId" [(ngModel)]="id"/></div>
-    <div class= "SumbitButton"><input class="btn btn-primary grey-button" type="submit" id="Find" value="Find User"></div>
-</form>
+
 
 
 </html>

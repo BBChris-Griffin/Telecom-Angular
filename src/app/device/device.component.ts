@@ -7,8 +7,11 @@ import Plan from '../models/Plan';
 
 @Component({
   selector: 'app-device',
-  templateUrl: './device.component.html',
+  template:`<app-find-id (send) = "receiveMessage($event)"></app-find-id> user:{{id}}`,
+//  templateUrl: './device.component.html',
   styleUrls: ['./device.component.css']
+  
+
 })
 export class DeviceComponent implements OnInit {
 
@@ -16,11 +19,10 @@ export class DeviceComponent implements OnInit {
    }
 
   deviceList: Device[]=[];
-
-  deviceList2:Device[]=[]
-
   id!:Text
 
+
+  deviceList3:Device[]=[];
   getKeys(obj: {}){
     return Object.keys(obj);
   }
@@ -28,14 +30,22 @@ export class DeviceComponent implements OnInit {
   findByID():void{
     console.log("find by id")
     this.service.id = this.id;
+    console.log("id in find-id component"+this.id)
   this.service.FindByCustomerId(this.service.id).subscribe((data)=>{
-    console.log(this.service.id);
-    this.deviceList2=data;
-    console.log(this.deviceList2);
+    console.log("id in service "+this.service.id);
+    this.service.deviceList2=data;
+    console.log(data);
+    console.log("service device list"+this.service.deviceList2);
+    
+    
     
     }); 
   }
-  
+ 
+  receiveMessage($event){
+    console.log(this.id +"id in parent")
+     this.id=$event
+  }
   ngOnInit(): void {      
    // this.plan= new Plan()
   }

@@ -11,6 +11,8 @@ export class TelecomService {
   
   url = 'http://localhost:9001/telecom';
   id!:Text
+  deviceList2:Device[]=[]
+
   excess!: ArrayBuffer;
 
   constructor(private httpClient: HttpClient) { }
