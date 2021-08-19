@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TelecomService } from './telecom.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,6 @@ import { TelecomService } from './telecom.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'telecom-angular';
-  id = this.service.id;
-  constructor(private service:TelecomService){}
+  title = 'telecom-angular';  
+
 }
