@@ -16,7 +16,7 @@
     <div class="row">
         <h3>Add a Plan to Device</h3>
         <form (ngSubmit)="addPlan(); planForm.reset()"id= "add plan" #planForm>
-            <div><label class="col-lg-2" for ="phone-number">Phone Number</label><input [(ngModel)]="phoneNumber" class="phone-number" type="text" id="phone-number" name="phone-number"></div>
+            <div><label class="col-lg-2" for ="phone-number">Phone Number</label><input [(ngModel)]="phoneNumber" class="phone-number" type="text" id="phone-number" name="phone-number" placeholder="###-###-####"></div>
             <div><label class="col-lg-2" for ="plan-id">Plan ID</label><input [(ngModel)]="planID" class="plan-id" type="text" id="plan-id" name="plan-id"></div>
             <div class= "SubmitButton col-lg-2"><input class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
         </form>

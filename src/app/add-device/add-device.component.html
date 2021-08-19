@@ -1,7 +1,7 @@
 <div class="row">
     <h3>Add a Device</h3>
     <form class="col-lg-4" (ngSubmit)="save(); deviceForm.reset()"id= "add device" #deviceForm>
-        <div><label class="form-label col-lg-4" for ="phone-number">Phone Number</label><input [(ngModel)]="device.phoneNumber" class="phone-number" type="text" id="renter-name" name="phone-number"></div>
+        <div><label class="form-label col-lg-4" for ="phone-number">Phone Number</label><input [(ngModel)]="device.phoneNumber" class="phone-number" type="text" id="renter-name" name="phone-number" placeholder="###-###-####"></div>
         <div><label class="form-label col-lg-4" for ="device-model">Model (IOS/Android)</label><input [(ngModel)]="device.device_model" class="device-model" type="text" id="device-model" name="device-model"></div>
         <div class= "SumbitButton col-lg-4"><input class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
     </form>
