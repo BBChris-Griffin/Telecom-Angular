@@ -1,6 +1,8 @@
-<h3>Want to Change Phone Number?</h3>
-<form (ngSubmit)="updatePhoneNumber(); pNumberForm.reset()"id= "update number" #pNumberForm>
-    <div><label class="form-label" for ="old-phone-number">Old Phone Number</label><input [(ngModel)]="oldPhoneNumber" class="old-phone-number" type="text" id="old-phone-number" name="old-phone-number"></div>
-    <div><label class="form-label" for ="new-phone-number">New Phone Number</label><input [(ngModel)]="newPhoneNumber" class="new-phone-number" type="text" id="new-phone-number" name="new-phone-number"></div>
-    <div class= "SubmitButton"><input class="btn btn-primary grey-button" type="submit" id="add-renter" value="Update Number"></div>
-</form>
+<div class="row">
+    <h3>Want to Change Phone Number?</h3>
+    <form  (ngSubmit)="updatePhoneNumber(); pNumberForm.reset()"id= "update number" #pNumberForm>
+        <div><label class="form-label col-lg-2" for ="old-phone-number">Old Phone Number</label><input [(ngModel)]="oldPhoneNumber" class="old-phone-number" type="text" id="old-phone-number" name="old-phone-number"></div>
+        <div><label class="form-label col-lg-2" for ="new-phone-number">New Phone Number</label><input [(ngModel)]="newPhoneNumber" class="new-phone-number" type="text" id="new-phone-number" name="new-phone-number"></div>
+        <div class= "SubmitButton col-lg-2"><input class="btn btn-primary grey-button" type="submit" id="add-renter" value="Update Number"></div>
+    </form>
+</div>
