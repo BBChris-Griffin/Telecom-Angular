@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
       if(this.service.check==true){
         console.log(this.service.check+"service check login")
-        this.router.navigateByUrl('/plans');
+        this.router.navigateByUrl('/device');
 
       }
 
