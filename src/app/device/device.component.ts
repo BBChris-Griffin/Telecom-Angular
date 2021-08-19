@@ -25,6 +25,13 @@ export class DeviceComponent implements OnInit {
     return Object.keys(obj);
   }
 
+  sendId(id):Text{
+    console.log("sendId "+this.id);
+    this.id=id;
+    return id;
+
+  }
+
   findByID():void{
     console.log("find by id")
     this.service.id = this.id;

@@ -9,12 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { NewNumberComponent } from './new-number/new-number.component';
 import { DeleteDeviceComponent } from './delete-device/delete-device.component';
+import { EstimatedPriceComponent } from './estimated-price/estimated-price.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, NewNumberComponent, DeleteDeviceComponent
+    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, NewNumberComponent, DeleteDeviceComponent, EstimatedPriceComponent
 
   ],
   imports: [
