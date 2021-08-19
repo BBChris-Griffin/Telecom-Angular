@@ -16,7 +16,7 @@ export class EstimatedPriceComponent implements OnInit {
 
   ShowEstimatedPrice():void{
     console.log(this.price)
-    this.service.EstimatedPrice(this.childId).subscribe((data)=>{
+    this.service.EstimatedPrice(this.service.id).subscribe((data)=>{
       
 
       this.price=data;
