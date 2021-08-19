@@ -1,8 +1,15 @@
 
 
-<form (ngSubmit)="ShowEstimatedPrice()">
-    <div class= "SumbitButton"><input class="btn btn-primary grey-button" type="submit" id="Find" value="Get My Bill"></div>
-<form>
 
-<h1>Your bill is {{price}}<h1>
+<h1 style="color:white;" >Customer {{id}}:Your bill is {{price}}<h1>
 
+    <form (ngSubmit)="ShowEstimatedPrice()">
+        <div class= "SumbitButton  btn"><input class=" btn-success" type="submit" id="Find" value="Get My Bill"></div>
+        <form>
+
+     <form (ngSubmit)="Logout()">
+    <div class= "SumbitButton btn "><input class="  btn-success" type="submit" id="Find" value="Logout"></div>
+     <form>
+
+    
+     

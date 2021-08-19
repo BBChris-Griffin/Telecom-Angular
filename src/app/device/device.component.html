@@ -28,12 +28,13 @@
     <app-estimated-price [childId]="sendId(id)"></app-estimated-price>
 
 </div> 
-<form  (ngSubmit)="findByID(); sendId(id)">
-
+<!-->
+<form  (ngSubmit)="findByID(); sendId(id)" >
     <div>customerId:<input type="text" name="customerId" [(ngModel)]="id"/></div>
     <div class= "SumbitButton"><input class="btn btn-primary grey-button" type="submit" id="Find" value="Find User"></div>
 
 </form>
+<-->
 
 
 </html>

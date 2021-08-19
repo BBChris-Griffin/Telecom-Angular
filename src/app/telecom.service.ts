@@ -13,6 +13,7 @@ export class TelecomService {
   url = 'http://localhost:9001/telecom';
   id!:Text
   excess!: ArrayBuffer;
+  check!:Boolean;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -40,6 +41,12 @@ export class TelecomService {
     return this.httpClient.get<number>(this.url+'/totalPrice/c_id='+customer_id);
   }
 
+  
+  Login(customer_id:Text, password:Text):Observable<Boolean>{
+
+    return this.httpClient.get<Boolean>(this.url+'/authenticate/id='+customer_id+'/password='+password);
+
+  }
   AddUserIDToDevice(customer_id:Text, phoneNumber:string): Observable<ArrayBuffer>{
     return this.httpClient.put<BigInteger>(this.url+'/customer_id=' + customer_id + '/phone_number=' + phoneNumber, this.excess);
   }
