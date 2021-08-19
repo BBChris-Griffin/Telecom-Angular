@@ -3,9 +3,11 @@
 
     <!-- <app-add-device [userID] = "id"></app-add-device> -->
 
-    <h2>Manage Devices</h2>
-    <div class="table table-dark table-bordered table-striped col-lg-12">
-        <table id="device_table" class="center">
+    <div>
+        <h2 class="center">Manage Devices</h2>
+    </div>
+    <div class="table table-dark table-bordered table-striped">
+        <table id="device_table" class="center container-fluid col-lg-8">
             <tr>
                 <th>Number</th><th>Model</th><th>Plan</th><th>User_ID</th>
             </tr>
@@ -19,10 +21,12 @@
 
                              
             </tr>
-            <app-estimated-price [childId]="sendId(id)"></app-estimated-price>
 
         </table>
+        
     </div>
+    <app-estimated-price [childId]="sendId(id)"></app-estimated-price>
+
 </div> 
 <form  (ngSubmit)="findByID(); sendId(id)">
 

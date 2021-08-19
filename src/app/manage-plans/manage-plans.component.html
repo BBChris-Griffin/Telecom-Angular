@@ -1,22 +1,24 @@
 <div>
     <h2>Mobile Plans</h2>
-    <div class="table table-dark table-bordered table-striped col-lg-12" >
-        <table class="center">
+    <div class="table table-dark table-bordered table-striped" >
+        <table class="center container-fluid col-lg-6">
             <tr>
                 <th>PLAN ID</th><th>PLAN TYPE</th><th>PRICE</th><th>NUMBER OF LINES</th>
             </tr>
             <tr *ngFor="let plan of planList">
                 <td>{{ plan.planId}}</td>
                 <td>{{ plan.planType }}</td> 
-                <td>{{ plan.price }}</td>
+                <td>${{ plan.price }}.00</td>
                 <td>{{plan.num_of_lines}}</td>
             </tr>
         </table>
     </div>  
-    <h3>Add a Plan to Device</h3>
-    <form (ngSubmit)="addPlan(); planForm.reset()"id= "add plan" #planForm>
-        <div><label class="form-label" for ="phone-number">Phone Number</label><input [(ngModel)]="phoneNumber" class="phone-number" type="text" id="phone-number" name="phone-number"></div>
-        <div><label class="form-label" for ="plan-id">Plan ID</label><input [(ngModel)]="planID" class="plan-id" type="text" id="plan-id" name="plan-id"></div>
-        <div class= "SubmitButton"><input class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
-    </form>
-</div>>
+    <div class="row">
+        <h3>Add a Plan to Device</h3>
+        <form (ngSubmit)="addPlan(); planForm.reset()"id= "add plan" #planForm>
+            <div><label class="col-lg-2" for ="phone-number">Phone Number</label><input [(ngModel)]="phoneNumber" class="phone-number" type="text" id="phone-number" name="phone-number"></div>
+            <div><label class="col-lg-2" for ="plan-id">Plan ID</label><input [(ngModel)]="planID" class="plan-id" type="text" id="plan-id" name="plan-id"></div>
+            <div class= "SubmitButton col-lg-2"><input class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
+        </form>
+    </div>
+</div>
