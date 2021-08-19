@@ -37,7 +37,7 @@ export class TelecomService {
   }
 
   EstimatedPrice(customer_id:Text): Observable<number>{
-    return this.httpClient.get<number>(this.url+'/totalPrice/c_id=1');
+    return this.httpClient.get<number>(this.url+'/totalPrice/c_id='+customer_id);
   }
   
 
