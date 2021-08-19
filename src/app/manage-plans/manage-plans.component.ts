@@ -12,6 +12,15 @@ export class ManagePlansComponent implements OnInit {
   constructor(private service: TelecomService) { }
 
   planList: Plan[] = [];
+  phoneNumber!: Text;
+  planID!: Text;
+
+  addPlan(): void{
+    this.service.AddPlanIDToDevice(this.planID, this.phoneNumber).subscribe(data => {
+      console.log("Plan Added");
+    });
+  }
+
   ngOnInit(): void {
     this.service.findAllPlans().subscribe((data) => {
       this.planList = data;
