@@ -5,10 +5,15 @@ import { DeviceComponent} from './device/device.component';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { NewNumberComponent } from './new-number/new-number.component';
 import { DeleteDeviceComponent } from './delete-device/delete-device.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 const routes: Routes = [
+  {
+    path: '', component: LoginComponent
+
+  },
   {
     path: 'plans', component: ManagePlansComponent
     
