@@ -1,6 +1,7 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
+<body style="background-image: url('../assets/wallpaper.jpg');">
 <div class="container-fluid" >
   <div>
     <nav class="navbar navbar-dark bg-dark">
@@ -11,18 +12,23 @@
     <a class="navbar-brand">
       
     </a>
-    
-    <a [routerLink]="['/plans']">Manage Plans</a> |
-    <a [routerLink]="['/device']">Manage Device</a> |
-    <a [routerLink]="['/add-device']">Add Device</a> |
-    <a [routerLink]="['/new-number']">Change Number</a> |
-    <a [routerLink]="['/delete-device']">Delete Device</a>
+
+    <nav class="navbar navbar-dark bg-dark">
+      <a [routerLink]="['/plans']">Manage Plans</a> |
+      <a [routerLink]="['/device']">Manage Device</a> |
+      <a [routerLink]="['/add-device']">Add Device</a> |
+      <a [routerLink]="['/new-number']">Change Number</a> |
+      <a [routerLink]="['/delete-device']">Delete Device</a>
+    </nav>
     <router-outlet></router-outlet>
+
+    
     <div>
       <img src="../assets/lotsofphones2.jpg" alt="bruh" class="img1">
     </div>
   </div>
 </div>
+</body>
 
 
 
