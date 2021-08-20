@@ -29,7 +29,9 @@ export class EstimatedPriceComponent implements OnInit {
   }
 
   Logout():void{
-
+    this.id=new Text('');
+    this.price=0;
+    this.service.id=new Text('');
     this.router.navigateByUrl('');
 
 
