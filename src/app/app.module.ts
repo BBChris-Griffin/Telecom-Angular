@@ -11,17 +11,22 @@ import { NewNumberComponent } from './new-number/new-number.component';
 import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 import { EstimatedPriceComponent } from './estimated-price/estimated-price.component';
 import { LoginComponent } from './login/login.component';
+import {MatCardModule} from '@angular/material/card';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, NewNumberComponent, DeleteDeviceComponent, EstimatedPriceComponent, LoginComponent
+    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, NewNumberComponent, DeleteDeviceComponent, EstimatedPriceComponent, LoginComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule
+    AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule,MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,36 @@
 <div>
     <h2>Mobile Plans</h2>
+
+    <div class="row">
+        <div class="card" style="width: 18rem; margin: 20px; align-items: center;" *ngFor="let plan of planList">
+            <mat-card style="font: bold; background-color: gray;" >
+                <mat-card-title>
+                    <h1>Plan {{ plan.planId}}</h1>
+                </mat-card-title>
+                <mat-card-content>
+                    <div>
+                        Unlimited 5G,
+                    </div>
+                    <div>
+                        Unlimited Text,
+                    </div>
+                    Unlimited Calling!!!!
+                    <div>
+
+                        {{ plan.planType }} 
+                        ${{ plan.price }}.00
+                        </div>
+                    <div>
+                        lines {{plan.num_of_lines}}
+                    </div>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-flat-button>Get plan</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <!--
     <div class="table table-dark table-bordered table-striped" >
         <table class="center container-fluid col-lg-6">
             <tr>
@@ -12,7 +43,7 @@
                 <td>{{plan.num_of_lines}}</td>
             </tr>
         </table>
-    </div>  
+    </div> <-->  
     <div class="row">
         <h3>Add a Plan to Device</h3>
         <form (ngSubmit)="addPlan(); planForm.reset()"id= "add plan" #planForm>
