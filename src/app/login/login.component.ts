@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     sessionStorage.setItem('token', '');
-
+    this.service.loggedIn = false;
   }
 
   login() {
@@ -71,7 +71,8 @@ export class LoginComponent implements OnInit {
               btoa(this.name + ':' + this.password)
             );
             console.log(btoa(this.name + ':' + this.password));
-      this.router.navigate(['device']);
+            this.service.loggedIn = true;
+      this.router.navigate(['plans']);
         } else {
             alert("Authentication failed.")
         }
