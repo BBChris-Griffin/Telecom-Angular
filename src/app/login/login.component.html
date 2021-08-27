@@ -2,11 +2,11 @@
     <link rel="stylesheet" href="login.component.css">
   </head>
 
-<form (ngSubmit)="passwordCheck()" >
+<form (ngSubmit)="login()" >
  
     <div class="container">
-      <label for="id"><b>UserId</b></label>
-      <input type="text" placeholder="Enter UserId" name="uname" [(ngModel)]="id" required>
+      <label for="id"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="name" required>
   
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="password" required>

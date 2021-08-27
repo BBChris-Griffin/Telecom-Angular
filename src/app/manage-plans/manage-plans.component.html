@@ -13,6 +13,22 @@
             </tr>
         </table>
     </div>  
+    <div class="container-fluid">
+        <div class="row">
+            <tr *ngFor="let plan of planList">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{plan.planType}}</h5>
+                            <p class="card-text">{{plan.price}}</p>
+                            <p class="card-lines">{{plan.num_of_lines}}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </div>
+    </div>
     <div class="row">
         <h3>Add a Plan to Device</h3>
         <form (ngSubmit)="addPlan(); planForm.reset()"id= "add plan" #planForm>

@@ -62,4 +62,8 @@ export class TelecomService {
   AddPlanIDToDevice(plan_id:Text, phoneNumber:Text): Observable<ArrayBuffer>{
     return this.httpClient.put<BigInteger>(this.url+'/plan_id=' + plan_id + '/phone_number=' + phoneNumber, this.excess);
   }
+
+  LoginAgain() : Observable<String> {
+    return this.httpClient.get<String>(this.url+'/login');
+  }
 }
