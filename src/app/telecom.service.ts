@@ -14,6 +14,7 @@ export class TelecomService {
   id!:Text
   excess!: ArrayBuffer;
   check!:Boolean;
+  loggedIn!: Boolean;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -65,5 +66,9 @@ export class TelecomService {
 
   LoginAgain() : Observable<String> {
     return this.httpClient.get<String>(this.url+'/login');
+  }
+
+  getToken(){
+    return sessionStorage.getItem('token');
   }
 }

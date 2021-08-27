@@ -4,13 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DeviceComponent } from './device/device.component';
 import { ManagePlansComponent } from './manage-plans/manage-plans.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { NewNumberComponent } from './new-number/new-number.component';
 import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 import { EstimatedPriceComponent } from './estimated-price/estimated-price.component';
 import { LoginComponent } from './login/login.component';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 
 
@@ -23,7 +24,13 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule, HttpClientModule, FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
