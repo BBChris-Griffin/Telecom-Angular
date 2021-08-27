@@ -1,9 +1,18 @@
 <div class="row">
     <h3>Add a Device</h3>
     <form class="col-lg-4" (ngSubmit)="save(); deviceForm.reset()"id= "add device" #deviceForm>
-        <div><label class="form-label col-lg-4" for ="phone-number">Phone Number</label><input [(ngModel)]="device.phoneNumber" class="phone-number" type="text" id="renter-name" name="phone-number" placeholder="###-###-####"></div>
+        <div><label class="form-label col-lg-4" for ="phone">Phone Number</label><input [(ngModel)]="device.phoneNumber" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
+             required #phone="ngModel" type="text" id="renter-name" name="phone-number" placeholder="###-###-####"></div>
+        <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
+            <div [hidden]="!phone.errors.required">
+                Please enter a number.
+            </div>
+            <div [hidden]="!phone.errors.pattern">
+                Please enter correct format.
+            </div>
+        </div>
         <div><label class="form-label col-lg-4" for ="device-model">Model (IOS/Android)</label><input [(ngModel)]="device.device_model" class="device-model" type="text" id="device-model" name="device-model"></div>
-        <div class= "SumbitButton col-lg-4"><input class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
+        <div class= "SumbitButton col-lg-4"><input [disabled]="!deviceForm.valid" class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
     </form>
 </div>
 

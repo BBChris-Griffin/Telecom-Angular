@@ -14,10 +14,11 @@
 
             <tr *ngFor="let device of deviceList2">
                 
-                <td>{{ device.phoneNumber }}</td> 
+                <td contenteditable='true'>{{ device.phoneNumber }}</td> 
                 <td>{{ device.device_model }}</td>
                 <td>{{device.plan?.planId || 'No plan'}}</td>
                 <td>{{device.user?.customerId || 'No Customer'}}</td>
+                <button class="btn btn-primary">If Only</button>
 
                              
             </tr>
