@@ -13,6 +13,7 @@ import { EstimatedPriceComponent } from './estimated-price/estimated-price.compo
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import {MatCardModule} from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -23,7 +24,7 @@ import {MatCardModule} from '@angular/material/card';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule,MatCardModule
+    AppRoutingModule, HttpClientModule, FormsModule,MatCardModule, BrowserAnimationsModule
   ],
   providers: [
     {
