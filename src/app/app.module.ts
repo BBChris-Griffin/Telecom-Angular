@@ -12,6 +12,7 @@ import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 import { EstimatedPriceComponent } from './estimated-price/estimated-price.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorService } from './token-interceptor.service';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -22,7 +23,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule
+    AppRoutingModule, HttpClientModule, FormsModule,MatCardModule
   ],
   providers: [
     {
