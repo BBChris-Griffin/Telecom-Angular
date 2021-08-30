@@ -72,6 +72,13 @@ export class LoginComponent implements OnInit {
             );
             console.log(btoa(this.name + ':' + this.password));
             this.service.loggedIn = true;
+            this.service.name = this.name;
+            this.service.GetCustomerID(this.service.name).subscribe((data) => {
+              console.log("id is "+data);
+              this.service.id = data;
+              console.log("id in service is"+this.service.id)
+              console.log(this.service.id);
+            });
       this.router.navigate(['plans']);
         } else {
             alert("Authentication failed.")

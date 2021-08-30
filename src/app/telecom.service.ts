@@ -12,6 +12,7 @@ export class TelecomService {
   
   url = 'http://localhost:9001/telecom';
   id!:Text
+  name!:Text
   excess!: ArrayBuffer;
   check!:Boolean;
   loggedIn!: Boolean;
@@ -36,6 +37,14 @@ export class TelecomService {
 
   FindByCustomerId(customer_id:Text): Observable<Device[]>{
     return this.httpClient.get<Device[]>(this.url+'/DeviceCustomerId='+customer_id);
+  }
+
+  FindByCustomer(customer:Text): Observable<Device[]>{
+    return this.httpClient.get<Device[]>(this.url+'/DeviceCustomer='+customer);
+  }
+
+  GetCustomerID(customer: Text): Observable<Text>{
+    return this.httpClient.get<Text>(this.url+'/getID='+customer);
   }
 
   EstimatedPrice(customer_id:Text): Observable<number>{

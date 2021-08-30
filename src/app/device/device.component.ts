@@ -35,24 +35,25 @@ export class DeviceComponent implements OnInit {
   findByID():void{
     console.log("find by id")
     this.service.id = this.id;
-    this.service.FindByCustomerId(this.service.id).subscribe((data)=>{
-      console.log(this.service.id);
+    this.service.FindByCustomer(this.service.name).subscribe((data)=>{
+      console.log(this.service.name);
       this.deviceList2=data;
       console.log(this.deviceList2);
       
       }); 
   }
 
-  initByID(cust_id: Text):void{
-    this.service.FindByCustomerId(cust_id).subscribe((data)=>{
+  initByID(cust: Text):void{
+    this.service.FindByCustomer(cust).subscribe((data)=>{
       this.deviceList2=data;
       }); 
   }
   
   // Persist Table...
   ngOnInit(): void { 
-    if(this.service.id != null) {
-      this.initByID(this.service.id);
+    if(this.service.name != null) {
+      console.log(this.service.name);
+      this.initByID(this.service.name);
     }
   }
 }

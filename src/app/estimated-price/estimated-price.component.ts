@@ -22,7 +22,7 @@ export class EstimatedPriceComponent implements OnInit {
     this.id=this.service.id;
     this.service.EstimatedPrice(this.service.id).subscribe((data)=>{
       
-
+      console.log(data);
       this.price=data;
       console.log(this.price);
     });
