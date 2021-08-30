@@ -16,6 +16,7 @@ export class AddDeviceComponent implements OnInit {
 
   save(): void {
     this.userID = this.service.id;
+    console.log("hello"+this.service.id);
     var phone = this.device.phoneNumber;
     this.service.AddDevice(this.device).subscribe(data => {
       console.log(data);

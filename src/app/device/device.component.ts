@@ -52,6 +52,7 @@ export class DeviceComponent implements OnInit {
   // Persist Table...
   ngOnInit(): void { 
     if(this.service.name != null) {
+      console.log(this.service.name);
       this.initByID(this.service.name);
     }
   }

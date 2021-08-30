@@ -74,7 +74,9 @@ export class LoginComponent implements OnInit {
             this.service.loggedIn = true;
             this.service.name = this.name;
             this.service.GetCustomerID(this.service.name).subscribe((data) => {
-              this.service.id = new Text(data.toString());
+              console.log("id is "+data);
+              this.service.id = data;
+              console.log("id in service is"+this.service.id)
               console.log(this.service.id);
             });
       this.router.navigate(['plans']);
