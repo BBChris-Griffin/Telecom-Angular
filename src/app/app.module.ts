@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -24,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule,MatCardModule, BrowserAnimationsModule
+    AppRoutingModule, HttpClientModule, FormsModule,MatCardModule, BrowserAnimationsModule, NgbModule
   ],
   providers: [
     {

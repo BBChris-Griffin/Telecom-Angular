@@ -1,8 +1,5 @@
 <html>
 <div>
-
-    <!-- <app-add-device [userID] = "id"></app-add-device> -->
-
     <div>
         <h2 class="center">Manage Devices</h2>
     </div>
@@ -14,7 +11,7 @@
 
             <tr *ngFor="let device of deviceList2">
                 
-                <td contenteditable='true'>{{ device.phoneNumber }}</td> 
+                <td (click)="editCell($event)" (blur)="updatePhone($event)">{{ device.phoneNumber }}</td> 
                 <td>{{ device.device_model }}</td>
                 <td>{{device.plan?.planId || 'No plan'}}</td>
                 <td>{{device.user?.customerId || 'No Customer'}}</td>

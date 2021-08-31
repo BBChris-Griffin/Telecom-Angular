@@ -21,6 +21,8 @@ export class DeviceComponent implements OnInit {
 
   id!:Text
 
+  originalValue!:Text
+
   getKeys(obj: {}){
     return Object.keys(obj);
   }
@@ -61,5 +63,18 @@ export class DeviceComponent implements OnInit {
       console.log(this.service.name);
       this.initByID(this.service.name);
     }
+  }
+
+  updatePhone(event) {
+    this.service.UpdatePhoneNumber(this.originalValue, event.target.innerText). subscribe(data => {
+      console.log("Update Called");
+    });
+  }
+
+  editCell(event) {
+    var target = event.target;
+    target.setAttribute('contenteditable', 'true');
+     this.originalValue = target.innerText;
+     console.log(this.originalValue);
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Plan from '../models/Plan';
 import { TelecomService } from '../telecom.service';
-import * as bootstrap from "bootstrap";
-import * as $ from 'jquery';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-manage-plans',
@@ -11,11 +11,12 @@ import * as $ from 'jquery';
 })
 export class ManagePlansComponent implements OnInit {
 
-  constructor(private service: TelecomService) { }
+  constructor(private service: TelecomService, private modalService:NgbModal) { }
 
   planList: Plan[] = [];
   phoneNumber!: Text;
   planID!: Text;
+  closeResult!:string;
   
 
   addPlan(): void{
@@ -24,11 +25,22 @@ export class ManagePlansComponent implements OnInit {
     });
   }
 
-  openModal(): void {
-    // var text = document.getElementById('movie-change');
-    // text.innerText = "Thanks for the Submission!";
-    $('#confirm-modal').modal('show')
-    console.log("FF");
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
   ngOnInit(): void {
