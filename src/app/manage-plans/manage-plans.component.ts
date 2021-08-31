@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Plan from '../models/Plan';
 import { TelecomService } from '../telecom.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-manage-plans',
@@ -9,7 +10,11 @@ import { TelecomService } from '../telecom.service';
 })
 export class ManagePlansComponent implements OnInit {
 
-  constructor(private service: TelecomService) { }
+  closeResult!:string;
+
+  constructor(private service: TelecomService, private modalService:NgbModal) {
+    
+   }
 
   planList: Plan[] = [];
   phoneNumber!: Text;
@@ -26,6 +31,25 @@ export class ManagePlansComponent implements OnInit {
       this.planList = data;
       console.log(this.planList);
     });
+  }
+
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
 }
