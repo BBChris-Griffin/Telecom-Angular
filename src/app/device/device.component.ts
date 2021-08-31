@@ -32,6 +32,12 @@ export class DeviceComponent implements OnInit {
 
   }
 
+  delete(phoneNumber) {
+    this.service.DeleteDevice(phoneNumber).subscribe(data => {
+      console.log("Delete Called");
+    });
+  }
+
   findByID():void{
     console.log("find by id")
     this.service.id = this.id;
