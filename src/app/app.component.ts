@@ -10,15 +10,16 @@ import { TelecomService } from './telecom.service';
 })
 export class AppComponent implements OnInit{
   title = 'telecom-angular';  
+  hello!:any
   constructor(private service: TelecomService) { }
 
   
   ngOnInit(){
     //await new Promise(f => setTimeout(f, 5000));
     console.log("ID " + sessionStorage.getItem('id'))
-    let hello = new Text(sessionStorage.getItem('id')!)
+    this.hello = sessionStorage.getItem('id')
     this.service.loggedIn = (sessionStorage.getItem('loggedIn') === 'true');
-    this.service.id = hello;
-    console.log("Hey" + this.service.id.textContent)
+    this.service.id = this.hello
+    console.log("Hey" + this.service.id)
   }
 }

@@ -32,6 +32,11 @@ export class ManagePlansComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
+  saveID(planID) {
+    this.planID = planID;
+    console.log(this.planID);
+  }
   
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

@@ -66,6 +66,9 @@ export class DeviceComponent implements OnInit {
   }
 
   updatePhone(event) {
+    if(this.originalValue === event.target.innerText) {
+      return;
+    }
     this.service.UpdatePhoneNumber(this.originalValue, event.target.innerText). subscribe(data => {
       console.log("Update Called");
     });
