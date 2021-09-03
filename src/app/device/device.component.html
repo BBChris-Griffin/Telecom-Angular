@@ -1,24 +1,31 @@
 <html>
 <div>
-
-    <!-- <app-add-device [userID] = "id"></app-add-device> -->
-
     <div>
         <h2 class="center">Manage Devices</h2>
     </div>
-    <div class="table table-dark table-bordered table-striped">
-        <table id="device_table" class="center container-fluid col-lg-8">
+    <div>
+        <table id="device_table" class=" table table-dark table-bordered table-striped center container-fluid col-lg-8">
             <tr>
-                <th>Number</th><th>Model</th><th>Plan</th><th>User_ID</th>
+                <th>Number</th><th>Model</th><th>Plan</th><th>Actions</th>
             </tr>
 
             <tr *ngFor="let device of deviceList2">
                 
-                <td contenteditable='true'>{{ device.phoneNumber }}</td> 
+                <td (click)="editCell($event)" (blur)="updatePhone($event)">{{ device.phoneNumber }}</td> 
                 <td>{{ device.device_model }}</td>
                 <td>{{device.plan?.planId || 'No plan'}}</td>
-                <td>{{device.user?.customerId || 'No Customer'}}</td>
-                <button class="btn btn-primary">If Only</button>
+                <!-- <td>{{device.user?.customerId || 'No Customer'}}</td> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                  </svg>
+                <button (click)="delete(device.phoneNumber)" class="btn btn-danger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                      </svg>
+                    Delete
+                </button>
 
                              
             </tr>

@@ -30,7 +30,26 @@
         </div>
     </div> -->
 
-    <div class="row">
+    <div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h6 id="movie-change">...</h6>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
         <div class="card" style="width: 18rem; margin: 20px; " *ngFor="let plan of planList">
             <mat-card style="font: bold; text-size-adjust: 4; " >
                 <mat-card-title>
@@ -38,11 +57,17 @@
                 </mat-card-title>
                 <mat-card-content>
                     <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                          </svg>
                         Unlimited 5G,
                     </div>
                     <div>
                         Unlimited Text,
                     </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone-vibrate-fill" viewBox="0 0 16 16">
+                        <path d="M4 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4zm5 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0zM1.807 4.734a.5.5 0 1 0-.884-.468A7.967 7.967 0 0 0 0 8c0 1.347.334 2.618.923 3.734a.5.5 0 1 0 .884-.468A6.967 6.967 0 0 1 1 8c0-1.18.292-2.292.807-3.266zm13.27-.468a.5.5 0 0 0-.884.468C14.708 5.708 15 6.819 15 8c0 1.18-.292 2.292-.807 3.266a.5.5 0 0 0 .884.468A7.967 7.967 0 0 0 16 8a7.967 7.967 0 0 0-.923-3.734zM3.34 6.182a.5.5 0 1 0-.93-.364A5.986 5.986 0 0 0 2 8c0 .769.145 1.505.41 2.182a.5.5 0 1 0 .93-.364A4.986 4.986 0 0 1 3 8c0-.642.12-1.255.34-1.818zm10.25-.364a.5.5 0 0 0-.93.364c.22.563.34 1.176.34 1.818 0 .642-.12 1.255-.34 1.818a.5.5 0 0 0 .93.364C13.856 9.505 14 8.769 14 8c0-.769-.145-1.505-.41-2.182z"/>
+                      </svg>
                     Unlimited Calling!!!!
                     <div>
                         {{ plan.planType }} 
@@ -53,7 +78,7 @@
                     </div>
                 </mat-card-content>
                 <mat-card-actions align="end">
-                    <button mat-flat-button>Get plan</button>
+                    <button mat-flat-button (click)="open(content); saveID(plan.planId)">Get plan</button>
                 </mat-card-actions>
             </mat-card>
         </div>
@@ -63,8 +88,27 @@
         <h3>Add a Plan to Device</h3>
         <form (ngSubmit)="addPlan(); planForm.reset()"id= "add plan" #planForm>
             <div><label class="col-lg-2" for ="phone-number">Phone Number</label><input [(ngModel)]="phoneNumber" class="phone-number" type="text" id="phone-number" name="phone-number" placeholder="###-###-####"></div>
-            <div><label class="col-lg-2" for ="plan-id">Plan ID</label><input [(ngModel)]="planID" class="plan-id" type="text" id="plan-id" name="plan-id"></div>
+            <!-- <div><label class="col-lg-2" for ="plan-id">Plan ID</label><input [(ngModel)]="planID" class="plan-id" type="text" id="plan-id" name="plan-id"></div> -->
             <div class= "SubmitButton col-lg-2"><input class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
         </form>
     </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="addPlan(); planForm.reset()"id= "add plan" #planForm>
+                <div><label class="col-lg-2" for ="phone-number">Phone Number</label><input [(ngModel)]="phoneNumber" class="phone-number" type="text" id="phone-number" name="phone-number" placeholder="###-###-####"></div>
+                <!-- <div><label class="col-lg-2" for ="plan-id">Plan ID</label><input [(ngModel)]="planID" class="plan-id" type="text" id="plan-id" name="plan-id"></div> -->
+                <div class= "SubmitButton col-lg-2"><input class="btn btn-primary grey-button" type="submit" id="add-device" value="Add Device"></div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
 </div>

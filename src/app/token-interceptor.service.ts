@@ -12,10 +12,13 @@ export class TokenInterceptorService implements HttpInterceptor {
   intercept(req, next){
     let telecomService = this.injector.get(TelecomService);
     let tokenizedReq = req;
+    //this.service.loggedIn = (sessionStorage.getItem('loggedIn') == 'true');
+    console.log(sessionStorage.getItem('loggedIn') == 'true')
     if(this.service.loggedIn === true) {
        tokenizedReq = req.clone({
         setHeaders: {
-          Authorization: `Basic ${telecomService.getToken()}`  
+          //Authorization: `Basic ${telecomService.getToken()}` 
+          Authorization: `Basic ${sessionStorage.getItem('token')}`
         }
       })
     }

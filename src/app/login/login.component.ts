@@ -70,12 +70,19 @@ export class LoginComponent implements OnInit {
               'token', 
               btoa(this.name + ':' + this.password)
             );
+
+            sessionStorage.setItem(
+              'loggedIn', 'true'
+            );
             console.log(btoa(this.name + ':' + this.password));
             this.service.loggedIn = true;
             this.service.name = this.name;
             this.service.GetCustomerID(this.service.name).subscribe((data) => {
               console.log("id is "+data);
               this.service.id = data;
+              sessionStorage.setItem(
+                'id', data.toString()
+              );
               console.log("id in service is"+this.service.id)
               console.log(this.service.id);
             });

@@ -21,6 +21,8 @@ export class DeviceComponent implements OnInit {
 
   id!:Text
 
+  originalValue!:Text
+
   getKeys(obj: {}){
     return Object.keys(obj);
   }
@@ -32,28 +34,50 @@ export class DeviceComponent implements OnInit {
 
   }
 
+  delete(phoneNumber) {
+    this.service.DeleteDevice(phoneNumber).subscribe(data => {
+      console.log("Delete Called");
+    });
+  }
+
   findByID():void{
     console.log("find by id")
     this.service.id = this.id;
-    this.service.FindByCustomer(this.service.name).subscribe((data)=>{
-      console.log(this.service.name);
+    this.service.FindByCustomerId(this.service.id).subscribe((data)=>{
+      console.log(this.service.id);
       this.deviceList2=data;
       console.log(this.deviceList2);
       
       }); 
   }
 
-  initByID(cust: Text):void{
-    this.service.FindByCustomer(cust).subscribe((data)=>{
+  initByID(cust_id: Text):void{
+    this.service.FindByCustomerId(cust_id).subscribe((data)=>{
       this.deviceList2=data;
       }); 
   }
   
   // Persist Table...
   ngOnInit(): void { 
-    if(this.service.name != null) {
+    if(this.service.id != null) {
       console.log(this.service.name);
-      this.initByID(this.service.name);
+      this.initByID(this.service.id);
     }
+  }
+
+  updatePhone(event) {
+    if(this.originalValue === event.target.innerText) {
+      return;
+    }
+    this.service.UpdatePhoneNumber(this.originalValue, event.target.innerText). subscribe(data => {
+      console.log("Update Called");
+    });
+  }
+
+  editCell(event) {
+    var target = event.target;
+    target.setAttribute('contenteditable', 'true');
+     this.originalValue = target.innerText;
+     console.log(this.originalValue);
   }
 }
