@@ -31,6 +31,10 @@ export class TelecomService {
     return this.httpClient.post<Device>(this.url + '/AddDevice',device);
   }
 
+  AddUser(user: User): Observable<User>{
+    return this.httpClient.post<User>(this.url + '/Adduser', user);
+  }
+
   FindAllDevices(): Observable<Device[]>{
     return this.httpClient.get<Device[]>(this.url+'/devices');
   }

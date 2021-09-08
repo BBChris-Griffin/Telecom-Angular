@@ -6,10 +6,14 @@ import { AddDeviceComponent } from './add-device/add-device.component';
 import { NewNumberComponent } from './new-number/new-number.component';
 import { DeleteDeviceComponent } from './delete-device/delete-device.component';
 import { LoginComponent } from './login/login.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 
 
 const routes: Routes = [
+  {
+    path: 'new-user', component: AddUserComponent
+  },
   {
     path: 'login', component: LoginComponent
 
