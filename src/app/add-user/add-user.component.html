@@ -1,0 +1,10 @@
+<div class="row">
+    <h3>Create New User</h3>
+    <form class="col-lg-8" (ngSubmit)="save(); userForm.reset()"id= "add user" #userForm>
+        <div><label class="form-label col-lg-8" for ="name">Username</label><input [(ngModel)]="user.name" id="username" name="name"></div>
+        <div><label class="form-label col-lg-8" for ="email">Email</label><input [(ngModel)]="user.email" id="email" name="email"></div>
+        <div><label class="form-label col-lg-8" for ="password">Password</label><input [(ngModel)]="user.password" id="password" name="password"></div>
+        <div class="SubmitButton col-lg-8"><input class="btn btn-primary" type="submit" id="add-user" value="Create User"></div>
+    </form>
+</div>
+

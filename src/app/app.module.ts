@@ -15,12 +15,13 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddUserComponent } from './add-user/add-user.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, NewNumberComponent, DeleteDeviceComponent, EstimatedPriceComponent, LoginComponent
+    AppComponent, DeviceComponent, ManagePlansComponent, AddDeviceComponent, NewNumberComponent, DeleteDeviceComponent, EstimatedPriceComponent, LoginComponent, AddUserComponent
 
   ],
   imports: [
