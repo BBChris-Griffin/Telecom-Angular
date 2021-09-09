@@ -1,10 +1,20 @@
-<div class="row">
+<div class="row container">
     <h3>Create New User</h3>
-    <form class="col-lg-8" (ngSubmit)="save(); userForm.reset()"id= "add user" #userForm>
-        <div><label class="form-label col-lg-8" for ="name">Username</label><input [(ngModel)]="user.name" id="username" name="name"></div>
-        <div><label class="form-label col-lg-8" for ="email">Email</label><input [(ngModel)]="user.email" id="email" name="email"></div>
-        <div><label class="form-label col-lg-8" for ="password">Password</label><input [(ngModel)]="user.password" id="password" name="password"></div>
-        <div class="SubmitButton col-lg-8"><input class="btn btn-primary" type="submit" id="add-user" value="Create User"></div>
+    <form class="col-lg-4" (ngSubmit)="save(); userForm.reset()"id= "add user" #userForm>
+        <div><label class="form-label col-lg-4" for ="name">Username</label><input [(ngModel)]="user.name" id="username" name="name" required #name="ngModel"></div>
+        <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+            <div [hidden]="!name.errors.required">
+                Please enter a name.
+            </div>
+        </div>
+        <div><label class="form-label col-lg-4" for ="email">Email</label><input [(ngModel)]="user.email" id="email" name="email"></div>
+        <div><label class="form-label col-lg-4" for ="password">Password</label><input [(ngModel)]="user.password" id="password" name="password" required #password="ngModel"></div>
+        <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+            <div [hidden]="!password.errors.required">
+                Please enter a password.
+            </div>
+        </div>
+        <div class="SubmitButton col-lg-4"><input [disabled]="!user.name || !user.password" class="btn btn-primary" type="submit" id="add-user" value="Create User"></div>
     </form>
 </div>
 
